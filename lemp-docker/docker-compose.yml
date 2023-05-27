@@ -16,13 +16,18 @@ services:
   mysql:
     image: mysql:8
     environment:
-      - MYSQL_ROOT_PASSWORD=root
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: test_db_user
+      MYSQL_PASSWORD: test_db_user_pass
+      MYSQL_DATABASE: test_db
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
     ports:
     - 127.0.0.1:8080:80
     environment:
-      PMA_HOST: mardiadb
+      PMA_HOST: mysql
       PMA_USER: root
       PMA_PASSWORD: root
+      
+      
